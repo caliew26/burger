@@ -1,36 +1,27 @@
-const connection = require("./connection.js");
+//require the connection to mysql
+const connection = require("../config/connection.js");
 
+//declare variable that is going to select "all" from mysql and return it
 var orm = {
-    selectAll: function(tableInput){
+    selectAll: function(tableInput,cb){
         var queryString = "SELECT * FROM ??";
         // console.log(queryString)
         connection.query(queryString, [tableInput], function(err, result){
             if (err) throw err;
             console.log(result);
-
+            cb(result);
         })
     },
-    //cannot insert into using ORM, must use ajax ()
-    // insertOne: function(tableInput, val1, val2){
-    //     var queryString = "INSERT INTO ?? VALUES ?, ?";
-    //     console.log(tableInput);
-    //     connection.query(queryString,[tableInput, val1, val2], function(err, result){
-    //         console.log(val1);
-    //         console.log(val2);
-    //         console.log(result);
-    //         if (err) throw err;
-    //         console.log("Insert successful");
-    //         return true;
-    //     })
-    // },
-    updateOne: function(tableInput, valup1, upval1){
+    //update mysql database and set the value where ?(I think this needs to be ID but not sure how to write that)
+    updateOne: function(tableInput, valup1, upval1, cb){
         var queryString = "UPDATE ?? SET ? WHERE ?";
         connection.query(queryString,[tableInput, valup1, upval1], function(err, result){
             if (err) throw err;
             console.log("Update successful");
+            cb(result);
         })
     }
 }
 
-
+//export orm.js for model use (burgers.js)
 module.exports = orm;

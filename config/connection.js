@@ -1,5 +1,7 @@
+//require npm packge mysql
 var mysql = require("mysql");
 
+//define msql connection values
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
@@ -8,9 +10,11 @@ var connection = mysql.createConnection({
   database: "burgers_db"
 });
 
+//establish connection
 connection.connect(function(err) {
   if (err) throw err;
   console.log("connected as id " + connection.threadId);
 });
 
+//export connection for orm.js
 module.exports = connection;
