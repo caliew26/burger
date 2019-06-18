@@ -2,31 +2,24 @@
 var mysql = require("mysql");
 
 //define msql connection values
-var con = {}
-  if ((process.env.PORT || 3000) != 3000) {
-      con = {
-        host: "gmgcjwawatv599gq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+if ((process.env.PORT || 3306) != 3306) {
+      var connection = mysql.connection({
+        host: "jlg7sfncbhyvga14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         port: 3306,
-        user: "yqr1358ag59b86t2",
-        password: "",
-        database: "mfprp122v8lffehd"
-      }
+        user: "n9ct6pjqxgzwea7d",
+        password: "bl0pcoc23ojg1n6m",
+        database: "wqnbw4oazpnu7388"
+      })
   } else {
-      con = {
+      var connection = mysql.createConnection({
           host: "localhost",
           port: 3306,
           user: "root",
-          password: "",
+          password: "Potter!!13",
           database: "burgers_db"
-      }
+      })
 }
-// var connection = mysql.createConnection({
-//   host: "localhost",
-//   port: 3306,
-//   user: "root",
-//   password: "Potter!!13",
-//   database: "burgers_db"
-// });
+
 
 //establish connection
 connection.connect(function(err) {
