@@ -1,23 +1,28 @@
+//this is where logic will live, will talk to the "view" files
+//this is javascript logic
+
 //require NPM express package
 const express = require("express");
 //declare router to be the express.Router
 var router = express.Router();
 //need to reference the models folder
-var burgers = require("../models");
+var burgersModel = require("../models/burger.js");
 
 //need (import) routes established to CRU
 router.get("/", function(request, response){
-    burgers.all(function(result){
-        var burgerObj = {
+    burgersModel.selectAll(function(result){
+        //burgerCntrlr is handlebar object
+        var burgerCntrlr = {
             burger: result
         };
-        console.log(burgerObj);
-        response.render("index", burgerObj);
+        console.log(burgerCntrlr);
+        response.render("index", burgerCntrlr);
     });
 });
 
 router.post("/api/burgers", function(request, response){
-    burgers.create(["burger_name", "devoured"], [request.body.burger_name, request.body.devoured], function(result){
+    burgersModel.create(["burger_name", "devoured"], [request.body.burger_name, request.body.devoured], function(result){
+        //I want the ID back from mysql to populate into the screen
         response.json({ id: result.insertID });
     });
 });
@@ -26,9 +31,9 @@ router.put("/api/burgers/:id", function(request,response){
     var condition = "id = " + request.params.id;
     console.log("condition", condition);
 
-    burgers.update(
+    burgerModel.update(
         {
-            burger_name: request.body.burger_name
+            devoured: request.body.devoured
         },
         condition, function(result) {
             if(result.changedRows === 0) {

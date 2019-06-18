@@ -1,3 +1,12 @@
 body {
-    background: salmon;
+    background: orange;
+    text-align: center;
+}
+
+h1 {
+    color:brown;
+}
+
+.newBurgerBtn {
+    background-color: antiquewhite;
 }

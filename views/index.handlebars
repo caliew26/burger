@@ -1,22 +1,28 @@
+{{!-- this is what the user will see and interact with --}}
 <h1>BURGERS!</h1>
 
 <h3>All the burgers!</h3>
 
 <ul>
+  {{!-- this is a forloop,  --}}
     {{#each burgers}}
-    <li>{{burgers}}</li>
+      <li>
+        <span>{{this.id}}
+        {{this.burger_name}}</span>
+      </li>
+    {{/each}}
 </ul>
 
 <div class="pictures">
-    <a href="../public/assets/img/94767513-seamless-pattern-of-burgers-background-for-fast-food-packing-poster-isometry-illustration-eps.jpg" alt="burger background"></a>
+    <img src="../public/assets/img/94767513-seamless-pattern-of-burgers-background-for-fast-food-packing-poster-isometry-illustration-eps.jpg" alt="burger background">
 </div>
 
-<3>Burgers Galore</3>>
+<h3>Burgers Galore</h3>
 <form class="create-form">
 
   <div class="form-group">
-    <label for="burger">Wanna Add A Burger?</label>
-    <input type="text" id="burger" name="name">
+    <label for="burgerX">Wanna Add A Burger?</label><br>
+    <input type="text" id="burgerY" name="name">
   </div>
 
   <div class="form-group">
@@ -25,5 +31,5 @@
     <input type="radio" name="devour" value="0"> NO!
   </div>
 
-  <button type="submit">Add New Burger</button>
+  <button class="newBurgerBtn" type="submit">Add New Burger</button>
 </form>

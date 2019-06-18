@@ -18,28 +18,9 @@ app.use(express.json());
 app.engine("handlebars", expressHandlbars({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
-//mysql ORM that will select all from mysql database table "burgers"
-orm.selectAll("burgers");
-
-
-//mysql ORM, function to update 
-orm.updateOne("burgers", "burger_name", false, "Cali-Safe", function(result){
-    var data = result;
-    console.log(data);
-});
-
-app.post("/api/burgers", function(request,response){
-    connection.query("INSERT INTO burgers (burger_name, devoured) VALUES(?, ?)",[request.body.burger_name, request.body.devoured],function(err, response){
-        if (err) {
-        return response.status(500).end();
-        }
-        response.json({id: response.insertID});
-    });
-});
-
-app.get("/burgers", function(request, response){
-    response.render("index", {burgers:"eat"})
-})
+//need to import the routes which live in the controller folder - they will want to access the server
+const routes = require("./controller/burgers_controller.js");
+app.use(routes);
 
 //need to set the app up to listen to the port
 app.listen(PORT, function() {
