@@ -10,3 +10,7 @@ h1 {
 .newBurgerBtn {
     background-color: antiquewhite;
 }
+
+li {
+    color: greenyellow;
+}

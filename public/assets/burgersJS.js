@@ -2,17 +2,18 @@
 
 $(function(){
     $(".create-form").click(function(event) {
+        //don't want the page to auto-reload
         event.preventDefault();
 
-        var burgerJS = {
-            burgerName: $("#burgerY").val().trim(),
-            devoured: $("[name=devour]:checked").val().trim()
+        var newBurger = {
+            burger_name: $("#burgerY").val().trim(),
+            devoured: $("[name=devoured]:checked").val().trim()
         };
         $.ajax("/api/burgers", {
             type: "POST",
-            data: burgerJS
+            data: newBurger
         }).then(function(){
-            console.log(burgerJS + "javascript page");
+            console.log(newBurger + "newBurger created");
             location.reload();
         })
     });

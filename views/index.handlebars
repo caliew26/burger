@@ -1,35 +1,52 @@
 {{!-- this is what the user will see and interact with --}}
-<h1>BURGERS!</h1>
+<h1>Mouth watering B-U-R-G-E-R-S!!</h1>
+<div class="wrapper">
+  <div class="burgersNotEaten">
+    <h3>These burgers are Available</h3>
+    <ul>
+      {{!-- this is a forloop,  --}}
+      {{#each burgers}}
+        {{#unless this.devoured}}
+          <li>{{this.id}}</li>
+          <li>{{this.burger_name}}</li>
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
 
-<h3>All the burgers!</h3>
+  <div class="eatenBurgers">
+    <h3>The Burgers are GONE</h3>
+    <ul>
+      {{#each burgers}}
+        {{#if this.devoured}}
+          <p>{{this.id}}</p>
+          <p>{{this.burger_name}}</p>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
 
-<ul>
-  {{!-- this is a forloop,  --}}
-    {{#each burgers}}
-      <li>
-        <span>{{this.id}}
-        {{this.burger_name}}</span>
-      </li>
-    {{/each}}
-</ul>
+  <div class="pictures">
+      <img src="../public/assets/img/94767513-seamless-pattern-of-burgers-background-for-fast-food-packing-poster-isometry-illustration-eps.jpg" alt="burger background">
+  </div>
 
-<div class="pictures">
-    <img src="../public/assets/img/94767513-seamless-pattern-of-burgers-background-for-fast-food-packing-poster-isometry-illustration-eps.jpg" alt="burger background">
+
+  <form class="create-form">
+
+    <div class="form-group">
+      <label for="burgerX">Wanna Add A Burger?</label><br>
+      <input type="text" id="burgerY" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="devour">Have you tried it?</label><br>
+      <input type="radio" name="devoured" value="1"> YES!<br>
+      <input type="radio" name="devoured" value="0"> NO!
+    </div>
+
+    <button class="newBurgerBtn" type="submit">Add New Burger</button>
+  </form>
+
+
+
 </div>
-
-<h3>Burgers Galore</h3>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burgerX">Wanna Add A Burger?</label><br>
-    <input type="text" id="burgerY" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="devour">Have you tried it?</label><br>
-    <input type="radio" name="devour" value="1"> YES!<br>
-    <input type="radio" name="devour" value="0"> NO!
-  </div>
-
-  <button class="newBurgerBtn" type="submit">Add New Burger</button>
-</form>

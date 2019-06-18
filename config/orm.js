@@ -14,7 +14,7 @@ var orm = {
     },
 
     create: function(tableInput, columnToUp, valsToUp, cb) {
-        var queryString = "INSERT INTO ?? ??, VALUES ??"
+        var queryString = "INSERT INTO ?? (??) VALUES (?)";
         connection.query(queryString, [tableInput, columnToUp, valsToUp],function(error, result){
             if(error) throw error;
             cb(result);
@@ -22,7 +22,7 @@ var orm = {
     },
     //update mysql database and set the value where ?(I think this needs to be ID but not sure how to write that)
     updateOne: function(tableInput, columnToUp, upval1, cb){
-        var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+        var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = '?'";
         
         connection.query(queryString,[tableInput, columnToUp, upval1], function(err, result){
             console.log(tableInput);
