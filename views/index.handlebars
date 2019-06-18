@@ -5,10 +5,9 @@
     <h3>These burgers are Available</h3>
     <ul>
       {{!-- this is a forloop,  --}}
-      {{#each burgers}}
+      {{#each burger}}
         {{#unless this.devoured}}
-          <li>{{this.id}}</li>
-          <li>{{this.burger_name}}</li>
+          {{this.id}}.{{this.burger_name}}<br>
         {{/unless}}
       {{/each}}
     </ul>
@@ -17,10 +16,9 @@
   <div class="eatenBurgers">
     <h3>The Burgers are GONE</h3>
     <ul>
-      {{#each burgers}}
+      {{#each burger}}
         {{#if this.devoured}}
-          <p>{{this.id}}</p>
-          <p>{{this.burger_name}}</p>
+          {{this.id}}.{{this.burger_name}}<br>
         {{/if}}
       {{/each}}
     </ul>
@@ -32,20 +30,21 @@
 
 
   <form class="create-form">
-
     <div class="form-group">
-      <label for="burgerX">Wanna Add A Burger?</label><br>
+      <label for="burgerX"><b>Wanna Add A Burger?</b></label><br>
       <input type="text" id="burgerY" name="name">
     </div>
 
     <div class="form-group">
       <label for="devour">Have you tried it?</label><br>
-      <input type="radio" name="devoured" value="1"> YES!<br>
-      <input type="radio" name="devoured" value="0"> NO!
+      <input type="radio" name="devoured" value="1"/> YES!<br>
+      <input type="radio" name="devoured" value="0"/> NO!<br>
+      <button class="newBurgerBtn" type="submit">Add Burger</button>
+      {{!-- <input type="button" class="newBurgerBtn" value="Add Burger"/> --}}
     </div>
-
-    <button class="newBurgerBtn" type="submit">Add New Burger</button>
   </form>
+
+
 
 
 
