@@ -8,7 +8,7 @@ if ((process.env.PORT || 3306) !=3306) {
           host: "jlg7sfncbhyvga14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
           port: 3306,
           user: "n9ct6pjqxgzwea7d",
-          password: "n9ct6pjqxgzwea7d",
+          password: "",
           database: "wqnbw4oazpnu7388"
       });
   } else {
