@@ -3,7 +3,7 @@ var mysql = require("mysql");
 
 //define msql connection values
 var connection;
-if ((process.env.PORT || 8080) !=8080) {
+if ((process.env.PORT || 3306) !=3306) {
       connection = mysql.createConnection({
           host: "jlg7sfncbhyvga14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
           port: 3306,
