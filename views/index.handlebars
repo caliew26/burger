@@ -1,0 +1,29 @@
+<h1>BURGERS!</h1>
+
+<h3>All the burgers!</h3>
+
+<ul>
+    {{#each burgers}}
+    <li>{{burgers}}</li>
+</ul>
+
+<div class="pictures">
+    <a href="../public/assets/img/94767513-seamless-pattern-of-burgers-background-for-fast-food-packing-poster-isometry-illustration-eps.jpg" alt="burger background"></a>
+</div>
+
+<3>Burgers Galore</3>>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="burger">Wanna Add A Burger?</label>
+    <input type="text" id="burger" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="devour">Have you tried it?</label><br>
+    <input type="radio" name="devour" value="1"> YES!<br>
+    <input type="radio" name="devour" value="0"> NO!
+  </div>
+
+  <button type="submit">Add New Burger</button>
+</form>

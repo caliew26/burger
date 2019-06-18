@@ -37,6 +37,10 @@ app.post("/api/burgers", function(request,response){
     });
 });
 
+app.get("/burgers", function(request, response){
+    response.render("index", {burgers:"eat"})
+})
+
 //need to set the app up to listen to the port
 app.listen(PORT, function() {
     console.log("App now listening at localhost:" + PORT);
