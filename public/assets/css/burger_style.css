@@ -1,17 +1,45 @@
 body {
+    border: 2px solid orange;
     background: orange;
     text-align: center;
     background-image: url("/assets/img/burgerbackground.jpg");
+    /* background-image: url("/assets/img/burgerbackground2.jpg"); */
 }
 
-h1 {
-    color:brown;
+.burgersNotEaten {
+    color:rgb(255, 47, 64);
+    font-size: 350%;
 }
 
 .newBurgerBtn {
-    background-color: antiquewhite;
+    background-color: rgb(255, 47, 64);
+    size: 50%;
 }
 
 li {
-    color: greenyellow;
+    color: rgb(255, 47, 64);
+}
+
+.form-group {
+    color:  rgb(255, 47, 64);
+    font-size: 400%;
+}
+
+.nav {
+    margin: 5%;
+    padding: 2%;
+    /* color: rgb(255, 47, 64); */
+    color: black;
+    font-size: 500%;
+    text-shadow: 0 0 3px #ffffff, 0 0 5px #000000;
+    background-color: antiquewhite;
+}
+
+.eatenBurgers {
+    color:rgb(255, 47, 64);
+    font-size: 350%;
+}
+
+h3 {
+    text-decoration: underline;
 }
