@@ -8,12 +8,13 @@ body {
 
 .burgersNotEaten {
     color:rgb(255, 47, 64);
-    font-size: 350%;
+    font-size: 350%;    
+    border: 1px solid brown;;
 }
 
-.newBurgerBtn {
+#newBurgerBtn {
     background-color: rgb(255, 47, 64);
-    size: 50%;
+    size: 500%;
 }
 
 li {
@@ -38,6 +39,7 @@ li {
 .eatenBurgers {
     color:rgb(255, 47, 64);
     font-size: 350%;
+    border: 1px solid brown;
 }
 
 h3 {

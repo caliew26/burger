@@ -15,7 +15,7 @@ router.get("/", function(request, response){
         var burgerCntrlr = {
             burger: result
         };
-        console.log(burgerCntrlr);
+        console.log("controller console.log " + JSON.stringify(burgerCntrlr));
         response.render("index", burgerCntrlr);
     });
 });
@@ -24,6 +24,7 @@ router.post("/api/burgers", function(request, response){
     burgersModel.create(["burger_name", "devoured"], [request.body.burger_name, request.body.devoured], function(result){
         //I want the ID back from mysql to populate into the screen
         response.json({ id: result.insertID });
+        console.log("this is a router.post api/burgers");
     });
 });
 
