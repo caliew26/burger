@@ -8,7 +8,11 @@
       {{!-- this is a forloop,  --}}
       {{#each burgers}}
       {{#unless this.devoured}}
-      {{this.id}}.{{this.burger_name}}<br>
+      {{this.id}}.{{this.burger_name}}
+        <p><span><button class="change-devour" data-id="{{id}}" data-newdevour=true>
+        {{#if devoured}}devoured!{{else}}devour me!{{/if}}
+        </button></span>
+        </p>
       {{/unless}}
       {{/each}}
     </ul>

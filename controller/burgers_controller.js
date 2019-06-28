@@ -38,24 +38,9 @@ router.post("/api/burgers", function(request, response){
     }
 });
 
-router.put("/api/burgers/:id", function(request,response){
-    var condition = "id = " + request.params.id;
-    console.log("condition", condition);
-
-    burgerModel.update(
-        {
-            devoured: request.body.devoured
-        },
-        condition, function(result) {
-            if(result.changedRows === 0) {
-                //problem, 404 status
-                return response.status(404).end();
-            } else {
-            //all is good, 200 status
-            response.status(200).end();
-        }
-    })
-})
+router.put("/api/burgers/:id", function(request,response) {
+    
+});
 
 //export router for server.js
 module.exports = router;
