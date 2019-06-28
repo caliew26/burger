@@ -18,6 +18,7 @@ var orm = {
         connection.query(queryString, [tableInput, columnToUp, valsToUp],function(error, result){
             if(error) throw error;
             cb(result);
+            //sends cb(result) back to the model?
         })
     },
     //update mysql database and set the value where ?(I think this needs to be ID but not sure how to write that)

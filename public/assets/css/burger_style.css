@@ -7,7 +7,7 @@ body {
 }
 
 .burgersNotEaten {
-    color:rgb(255, 47, 64);
+    /*color:rgb(255, 47, 64);*/
     font-size: 350%;    
     border: 1px solid brown;;
 }
@@ -18,11 +18,11 @@ body {
 }
 
 li {
-    color: rgb(255, 47, 64);
+    /*color: rgb(255, 47, 64);*/
 }
 
 .form-group {
-    color:  rgb(255, 47, 64);
+    /*color:  rgb(255, 47, 64);*/
     font-size: 400%;
 }
 
@@ -37,7 +37,7 @@ li {
 }
 
 .eatenBurgers {
-    color:rgb(255, 47, 64);
+    /*color:rgb(255, 47, 64);*/
     font-size: 350%;
     border: 1px solid brown;
 }

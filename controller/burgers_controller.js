@@ -9,23 +9,33 @@ var router = express.Router();
 var burgersModel = require("../models/burger.js");
 
 //need (import) routes established to CRU
+//function is execute
 router.get("/", function(request, response){
     burgersModel.selectAll(function(result){
         //burgerCntrlr is handlebar object
         var burgerCntrlr = {
-            burger: result
+            burgers: result
         };
         console.log("controller console.log " + JSON.stringify(burgerCntrlr));
         response.render("index", burgerCntrlr);
     });
 });
 
+
 router.post("/api/burgers", function(request, response){
-    burgersModel.create(["burger_name", "devoured"], [request.body.burger_name, request.body.devoured], function(result){
-        //I want the ID back from mysql to populate into the screen
-        response.json({ id: result.insertID });
-        console.log("this is a router.post api/burgers");
-    });
+    if(!request.body.burger_name){
+        response.status(418).send('You must provide a burger name');
+    } else if(!["0","1"].includes(request.body.devoured)){
+        console.log("user entered invalid value " + request.body.devoured + " for have you tried it ")
+        response.status(418).send('You must select yes or no');
+    } else {
+        burgersModel.create(["burger_name", "devoured"], [request.body.burger_name, request.body.devoured], function (result) {
+            //I want the ID back from mysql to populate into the screen
+            response.json({id: result.insertID});
+            console.log("this is a router.post api/burgers");
+            //get a cb(response) from models - burgers.js
+        });
+    }
 });
 
 router.put("/api/burgers/:id", function(request,response){

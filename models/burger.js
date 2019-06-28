@@ -4,19 +4,15 @@ const orm = require("../config/orm.js");
 
 var burgerModel = {
     selectAll: function(cb) {
-        orm.selectAll("burgers", function(response){
-            cb(response);
-        });
+        orm.selectAll("burgers", cb);
     },
+    //is is is sent to the controller router.post
     create: function(columnToUpdate,valsToUp,cb){
-        orm.create("burgers", columnToUpdate,valsToUp,function(response){
-            cb(response);
-        })
+        //orm.create goes to the orm.js page
+        orm.create("burgers", columnToUpdate,valsToUp,cb)
     },
     updateOne: function(columnToUpdate,condition,cb){
-        orm.updateOne("burgers", columnToUpdate, condition, function(response){
-            cb(response);
-        })
+        orm.updateOne("burgers", columnToUpdate, condition, cb)
     }
 
 }

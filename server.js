@@ -2,6 +2,8 @@
 const express = require("express");
 //require npm package express-handlebars
 const expressHandlbars = require("express-handlebars");
+//require npm package mysql
+const mysql = require("mysql");
 //declaring app to be express
 const app = express();
 //declaring the port access for heroku and localhost
